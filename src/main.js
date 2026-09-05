@@ -1,0 +1,12 @@
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import { refreshOnAssetsLoad } from './lib/gsap'
+import './assets/styles/main.css'
+
+const app = createApp(App).use(router)
+
+router.isReady().then(() => {
+  app.mount('#app')
+  refreshOnAssetsLoad()
+})
